@@ -1,0 +1,80 @@
+/* CSS Document */
+
+#app-wrapper {
+	width:100%;
+
+}
+
+.start-pos
+{
+	margin-top:20%;
+}
+
+#search-wrapper {
+	width:500px;
+	margin:0 auto;
+}
+
+#search-wrapper input[type="text"] {
+	width:250px;
+	height:30px;
+	margin:0;
+	padding:0;
+}
+
+#search-wrapper a {
+	margin:0;
+	width:100px;
+	height:30px;
+	text-decoration:none;
+	background-color:#76CEFF;
+	padding:15px;
+	color:black;
+	
+}
+
+#results-wrapper {
+	width:100%;
+    -webkit-justify-content: center; /* Safari 6.1+ */
+    justify-content: center;
+	display:none;
+}
+
+.center-stuff {
+	display: flex;	
+}
+
+#user-list-wrapper
+{
+	width:700px;
+	float:left;
+	
+}
+
+.user-wrapper {
+	float:left;
+	width:310px;
+	height:150px;
+	margin:0 10px;	
+	
+}
+
+.user-wrapper img {
+	float:left;
+}
+.user-wrapper p {
+	float:right;
+}
+
+#user-info-wrapper
+{
+	width:700px;
+	float:right;
+}
+
+#user-info-wrapper h2
+{
+	text-decoration:underline;
+}
+
+

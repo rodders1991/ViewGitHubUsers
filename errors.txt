@@ -1,0 +1,3 @@
+1. when pressing the button a second time, it does the function but doesn't update the result. Press the button again it updates the button to the previous click.
+
+2. Pageation problem, last page normally has no results

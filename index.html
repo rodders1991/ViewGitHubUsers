@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<!-- define angular app -->
+<html>
+
+<head>
+  <!-- Styles -->
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+
+	<!-- JQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="src/ani.js"></script>
+  
+  <!-- Angular2 -->
+  	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  
+  <!-- Scripts -->
+  <script>
+  	var app = angular.module('gitHubApp', []);
+  </script>
+  <script src="src/UserService.js"></script>
+  <script src="src/UsersController.js"></script>
+  <script src="src/UserController.js"></script>
+  
+  
+  <title>View GitHub Users</title>
+  
+</head>
+
+<body>
+  <div id="app-wrapper" class="start-pos" ng-app="gitHubApp" ng-controller="usersCtrl">
+  	<div id="search-wrapper">
+  		<input type="text" ng-model="query" />
+    	<a href="#" ng-click="searchUsers()">Search</a>
+    </div>
+    <div id="results-wrapper" class="center-stuff">
+    	<div id="user-list-wrapper">
+    		<h3>Returned {{users.length}} results (Click the avatar to view user)</h3>
+    		<div class="user-wrapper" ng-repeat="user in users | startFrom:currentPage*pageSize | limitTo:pageSize" ng-click="getUser(user.login)">
+        	<img src="{{user.avatar_url}}.jpg" width="50" height="50" />
+        	<p>{{ user.login }}
+        	</p>
+        </div>
+        
+     	<button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+        	Previous
+    	</button>
+    	{{currentPage+1}}/{{ lastPage + 1 }}
+    	<button ng-disabled="currentPage >= lastPage" ng-click="currentPage=currentPage+1">
+        	Next
+    	</button>
+    	</div>
+        
+    	<div id="user-info-wrapper">
+    		<h1>{{userName}}</h1>
+            <h3>{{userLocation}}</h3>
+            
+            <p ng-if="aUser.hireable">Available for Work</p>
+            <p ng-if="!aUser.hireable">Not available for Work</p>
+    	</div>
+        
+    </div>
+    
+    
+    
+    
+  </div>
+</body>
+
+</html>
