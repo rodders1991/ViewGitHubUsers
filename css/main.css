@@ -1,80 +1,229 @@
+@charset "utf-8";
 /* CSS Document */
 
-#app-wrapper {
-	width:100%;
-
+html, body {
+	height: 100%;
+    margin: 0;
+	background-color:#FCFBE3;
+	background-image:url(../images/wallpaper.jpeg);
+	color:#0A0908;
 }
 
-.start-pos
-{
-	margin-top:20%;
-}
-
-#search-wrapper {
-	width:500px;
-	margin:0 auto;
-}
-
-#search-wrapper input[type="text"] {
-	width:250px;
-	height:30px;
-	margin:0;
-	padding:0;
-}
-
-#search-wrapper a {
-	margin:0;
-	width:100px;
-	height:30px;
+a:hover, a:active, a:focus {
 	text-decoration:none;
-	background-color:#76CEFF;
-	padding:15px;
-	color:black;
+}
+
+@font-face {
+    font-family: 'EdwardianScriptITC';
+    src: url(font/EdwardianScriptITC.ttf);
+}
+
+@font-face {
+    font-family: 'NovaBold';
+    src: url(font/NovaBold.ttf);
+}
+
+
+.men-ani
+{
+	padding-top:12px;
+	width:50px;
+}
+.men-ani div
+{
+	
+	height:3px;
+	margin-bottom:10px;
+}
+
+.top-men-ani
+{
+	background-color:#FCFBE3;
+	width:5px;
+}
+
+.mid-men-ani
+{
+	background-color:rgba(158,100,168,1);
+	width:20px;
+}
+
+.bot-men-ani
+{
+	background-color:#FCFBE3;
+	width:5px;
+}
+
+.rotated-bottom { 
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+	position:absolute;
+}
+
+.rotated-top { 
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+	position:absolute;
+}
+
+
+#range-btn
+{
+	color:#FCFBE3;
+	padding:10px;
+	border:2px #FCFBE3 solid;
+	border-radius:5px;
+	margin:0 auto;
+	width:200px;
+	font-size:18px;
+
+}
+
+/*Hair and Beauty Page*/
+
+#hair-beauty-product-content
+{
+	font-family: 'Nova Round', cursive;	
+}
+
+#hair-beauty-product-content h1
+{
+	margin:30px 0;	
+}
+
+.hb-product-wrapper img
+{
+	width:100px;
+	height:100px;
+	transform: rotate(45deg);
+
 	
 }
 
-#results-wrapper {
+.product-item h2 {
+	margin-top:30px;
+	color:#0A0908;
+	font-size:18px;
+}
+
+.product-item p {
+	font-size:18px;
+	color:#0A0908;
+	}
+
+.hb-product-wrapper
+{
+	margin:50px auto;
+	width:100px;
+	height:100px;
+	transform: rotate(-45deg);
+	border:2px #0a0908 solid;
+	background-color:#0a0908;
+}
+
+#product-detail {
+	position:fixed;
+	left:0;
+	top:0;
 	width:100%;
-    -webkit-justify-content: center; /* Safari 6.1+ */
-    justify-content: center;
+	height:100%;
+	background-color:rgba(0,0,0,0.9);
 	display:none;
 }
 
-.center-stuff {
-	display: flex;	
-}
-
-#user-list-wrapper
+#close-detail-wrapper
 {
-	width:700px;
-	float:left;
-	
+	width:100%;
 }
 
-.user-wrapper {
-	float:left;
-	width:310px;
-	height:150px;
-	margin:0 10px;	
-	
-}
-
-.user-wrapper img {
-	float:left;
-}
-.user-wrapper p {
+#close-detail
+{
+	margin-right:100px;
+	margin-top:50px;
 	float:right;
 }
-
-#user-info-wrapper
-{
-	width:700px;
-	float:right;
+.close-detail-line {
+	width:50px;
+	height:5px;
+	background-color:#FCFBE3;
 }
 
-#user-info-wrapper h2
+.detail-product-wrapper
 {
-	text-decoration:underline;
+	margin:200px auto 0 auto;
+	width:300px;
+	height:300px;
+	transform: rotate(-45deg);
+	border:2px #FCFBE3 solid;
+	background-color:#FCFBE3;
 }
 
+.detail-product-wrapper img 
+{
+	width:300px;
+	height:300px;
+	transform: rotate(45deg);
+}
+
+#product-detail h2 {
+	margin-top:80px;
+	color:#FCFBE3;
+}
+
+#product-detail p {
+	font-size:18px;
+	color:#FCFBE3;
+	margin-top:300px;
+	}
+
+#book-product-btn
+{
+	border:2px rgba(158,100,168,1) solid;
+	width:70px;
+	font-size:18px;
+	color:#FCFBE3;
+	border-radius:10px;
+	padding:10px;
+	margin-top:50px;
+}
+
+#searchMenu {
+	margin-top:30%;
+	
+}
+#searchMenu form {
+	width:300px;
+	margin:0 auto;
+}
+
+#textSearch {
+	width:300px;
+	margin:0;
+	padding:0;
+	height:50px;
+	box-shadow:none;
+	-webkit-appearance: caret;
+   -moz-appearance: caret;
+     -o-appearance: caret;
+        appearance: caret;
+	font-size:20px;
+}
+
+#submit-search {
+	margin:0;
+	width:300px;
+	height:50px;
+	-webkit-appearance: caret;
+   -moz-appearance: caret;
+     -o-appearance: caret;
+        appearance: caret;
+	font-size:20px;
+
+}
 
