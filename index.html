@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bootstrap - Prebuilt Layout</title>
+<title>View GitHub Users</title>
 
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Merriweather:400" rel="stylesheet" type="text/css">
@@ -16,9 +16,8 @@
 
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script   src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"   integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="   crossorigin="anonymous"></script>
-<script src="script/color.min.js"></script>
-<script src="script/style.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"   integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="   crossorigin="anonymous"></script>
+<script src="src/ani.js"></script>
 
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -41,20 +40,31 @@
 <body>
 
 <div id="hair-beauty-product-content" ng-app="myApp">
-	<div class="container" ng-controller="UserCtrl">
+	<div class="container-fluid" ng-controller="UserCtrl">
     	<div id="searchMenu" class="col-sm-12">
-        	<form>
-            	<input id="textSearch" type="text" class="" placeholder="mysterious user..." />
+        	<form ng-submit="searchUsers()">
+            	<input id="textSearch" type="text" class="" placeholder="mysterious user..." ng-model="query" autofocus />
                 <input id="submit-search" type="submit" class="btn-primary" value="Search GitHub Users"/>
             </form>
         </div>
         
-            <div class="product-item col-sm-4 text-center" ng-repeat="service in hBServices">
+            <div class="product-item col-sm-4 text-center" ng-repeat="user in users | startFrom:currentPage*pageSize | limitTo:pageSize">
         		<div class="hb-product-wrapper" ng-click="displayProduct(service)">
-                	<img src="images/{{service.imgURL}}.png" />
+                	<img src="{{user.avatar_url}}.jpg" />
                 </div>
-                <h2>{{service.name}}</h2>
+                <h2>{{user.login}}</h2>
         	</div>
+        
+        <div id="prePage" ng-show="currentPage > 0" ng-click="currentPage=currentPage-1">
+        {{currentPage+1}}/{{ lastPage + 1 }}
+        &#10094;
+        </div>
+        
+        <div id="nextPage" ng-show="currentPage => 0" ng-click="currentPage=currentPage+1">
+        {{currentPage+1}}/{{ lastPage + 1 }}
+        &#10095;
+        </div>
+        
     <div id="product-detail">
      	<div id="close-detail-wrapper">
        		<div id="close-detail">
@@ -65,16 +75,11 @@
         	<div class="container">
 			<div class="col-md-6 text-center">
         		<div class="detail-product-wrapper">
-            		<img src="images/{{product.imgURL}}-dark.png" />
+            		<img src="images/{{user.avatar_url}}.png" />
             	</div>
-            	<h2>{{product.name}}</h2>
     		</div>
         
         	<div class="col-md-6">
-        		<p>{{product.des}}</p>
-                <div id="book-product-btn">
-                Book
-                </div>
         	</div>
         </div>
     </div>

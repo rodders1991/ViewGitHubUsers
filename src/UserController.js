@@ -4,19 +4,34 @@ app.controller('UserCtrl', function($scope, userService) {
 	
 	//max 10 per page
 	$scope.currentPage = 0;
-    $scope.pageSize = 10;
+    $scope.pageSize = 9;
 	$scope.userName = "Click a Avatar to view a User";
+	$scope.firstSearch = true;
 	
 	
+	$scope.searchUsers = function() { 
 	
-	$scope.searchUsers = function() { userService.getUsers($scope.query).then(function() {
+	userService.getUsers($scope.query).then(function() {
+		
+		if($scope.firstSearch)
+		{
+			$("#searchMenu").animate({marginTop:"20px"});
+			$("#searchMenu form").animate({width:"620px"});
+			$("#nextPage").show();
+
+			$scope.firstSearch = false;
+		}
+		
 		
 		$scope.users = userService.users().items;
-		$scope.lastPage = $scope.users.length / $scope.pageSize;
+		$scope.lastPage = Math.ceil($scope.users.length / $scope.pageSize) - 1;
+		
+		
 	});
+	
 	};
 	
-	$scope.getUser = function(query) { userService.getUser(query).then(function() {
+	$scope.getUser = function(usr) { userService.getUser(usr).then(function() {
 		$scope.aUser = userService.user();
 		$scope.userName = userService.user().name;
 		$scope.userLocation = "From " + $scope.aUser.location;
